@@ -15,8 +15,6 @@ passed/failed.
 
 ### 0.0.0
 
-_in progress_
-
 * With the exception of polypick.version, every function will `throw 'not implented';`.
 * With the exception of polypick.version, all tests will expect 'not implented' errors.
 
