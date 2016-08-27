@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>polypick visualizer</title>
+<style>
+body { margin: 0; }
+canvas { width: 100%; height: 100%; display: block; }
+</style>
+<script type="text/javascript" src="three.min.js"></script>
+<script type="text/javascript" src="OrbitControls.js"></script>
+<script type="text/javascript" src="polypick_visualizer.js"></script>
+
+<!-- test script remove me-->
+<script type="text/javascript">
+var a = [-2.5, 1.5, 0];
+var b = [-2.5, -1.5, 0];
+var c = [1.25, -1.5, 0];
+
+var start = [-1.5, -0.5, 2];
+var dir = [0, 0, -1];
+
+window.addEventListener('load', function () {
+  pvis.add_tri(a, b, c);
+  pvis.add_ray(start, dir);
+});
+</script>
+
+</head>
+<body>
+</body>
+</html>
