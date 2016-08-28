@@ -31,6 +31,9 @@
 .suite_cat.cat_level_1 {
   background-color: #f0f0f0;
 }
+.suite_cat.cat_level_2 {
+  background-color: #f8f8f8;
+}
 
 .suite_test {
   padding: 0.25em;
