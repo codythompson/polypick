@@ -74,17 +74,17 @@ test_suite = {
 
     // these tests act a checklist for release stuff
     "housekeeping": {
-      // the version test above should be updated as the first commit to of a
+      // the version test above should be updated before a point release
       // new version
       "update version number test": function (test_vars) {
-        var check = true;
-        chai.expect(check).to.equal(true, 'this should happen in the first commit of a new version');
+        var check = false;
+        chai.expect(check).to.equal(true, 'this should happen before a point release');
       },
 
       // this should be changed in the commit before release
-      "update roadmap and/or README.md": function (test_vars) {
-        var check = true;
-        chai.expect(check).to.equal(true, 'this should happen in the last commit of a new version');
+      "update ROADMAP.md and/or README.md": function (test_vars) {
+        var check = false;
+        chai.expect(check).to.equal(true, 'this should happen before a point release');
       },
     }
 
