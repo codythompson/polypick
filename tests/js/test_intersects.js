@@ -4,7 +4,6 @@ test_suite = {
   title: 'polypick tests',
 
   init: function () {
-    // no test_vars needed at this time
     this.test_vars.ray_tri_six_ways = function (or, dir, a, b, c) {
       chai.expect(polypick.intersects.ray_tri(or, dir, a, b, c))
         .to.be.true;
@@ -19,6 +18,10 @@ test_suite = {
       chai.expect(polypick.intersects.ray_tri(or, dir, c, b, a))
         .to.be.true;
     };
+
+    this.test_vars.left_a = [-2.5, 1.5, 0];
+    this.test_vars.left_b = [-2.5, -1.5, 0];
+    this.test_vars.left_c = [4.25, -1.0, 0];
   },
 
   /*
@@ -40,16 +43,32 @@ test_suite = {
 
     "polypick.intersects": {
       ray_tri: {
-        "-x-y-z towards .x.y+z true": function (test_vars) {
-          var or = [-1.5, -0.5, -2];
-          var dir = [0, 0, 1];
+        "ray_tri left tri, true": {
+          "-x-y+z towards .x.y-z true": function (test_vars) {
+            var or = [-1.5, -0.5, 2];
+            var dir = [0, 0, -1];
 
-          var a = [-0.5, 0.5, 0];
-          var b = [-0.5, -0.5, 0];
-          var c = [1.25, -0.5, 0];
+            test_vars.ray_tri_six_ways(or, dir, test_vars.left_a, test_vars.left_b, test_vars.left_c);
+          },
+          "+x-y+z towards .x.y-z true": function (test_vars) {
+            var or = [0.5, -1.0, 2];
+            var dir = [0, 0, -1];
 
-          test_vars.ray_tri_six_ways(or, dir, a, b, c);
-        },
+            test_vars.ray_tri_six_ways(or, dir, test_vars.left_a, test_vars.left_b, test_vars.left_c);
+          },
+          "+x+y+z towards .x.y-z true": function (test_vars) {
+            var or = [0.05, 0.5, 2];
+            var dir = [0, 0, -1];
+
+            test_vars.ray_tri_six_ways(or, dir, test_vars.left_a, test_vars.left_b, test_vars.left_c);
+          },
+          "-x+y+z towards .x.y-z true": function (test_vars) {
+            var or = [-0.05, 0.5, 2];
+            var dir = [0, 0, -1];
+
+            test_vars.ray_tri_six_ways(or, dir, test_vars.left_a, test_vars.left_b, test_vars.left_c);
+          },
+        }
       }, // end ray_tri category
     }, // end polypick.intersects category
 
